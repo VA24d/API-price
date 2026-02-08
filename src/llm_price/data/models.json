@@ -1,0 +1,42 @@
+[
+  {
+    "provider": "openai",
+    "model": "gpt-4o-mini",
+    "release_date": "2024-07-18",
+    "pricing": {
+      "input_per_1m": "0.15",
+      "output_per_1m": "0.60"
+    },
+    "notes": "OpenAI pricing in USD per 1M tokens"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-4o",
+    "release_date": "2024-05-13",
+    "pricing": {
+      "input_per_1m": "5.00",
+      "output_per_1m": "15.00"
+    },
+    "notes": "OpenAI pricing in USD per 1M tokens"
+  },
+  {
+    "provider": "google",
+    "model": "gemini-1.5-flash",
+    "release_date": "2024-05-14",
+    "pricing": {
+      "input_per_1m": "0.35",
+      "output_per_1m": "1.05"
+    },
+    "notes": "Google pricing in USD per 1M tokens"
+  },
+  {
+    "provider": "google",
+    "model": "gemini-1.5-pro",
+    "release_date": "2024-05-14",
+    "pricing": {
+      "input_per_1m": "3.50",
+      "output_per_1m": "10.50"
+    },
+    "notes": "Google pricing in USD per 1M tokens"
+  }
+]

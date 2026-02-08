@@ -1,0 +1,129 @@
+Metadata-Version: 2.4
+Name: llm-price
+Version: 0.1.0
+Summary: Pricing + release metadata and cost estimation for LLMs
+Author: Your Name
+License: MIT
+Project-URL: Homepage, https://example.com
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: tiktoken>=0.7.0
+Requires-Dist: typer>=0.12.0
+Requires-Dist: requests>=2.32.0
+Provides-Extra: dev
+Requires-Dist: pytest>=8.0.0; extra == "dev"
+Requires-Dist: ruff>=0.6.0; extra == "dev"
+Requires-Dist: mypy>=1.10.0; extra == "dev"
+
+# llm-price
+
+Pricing + release metadata and cost estimation for LLMs (OpenAI + Google Gemini).
+
+## Features
+
+- Model metadata with release dates
+- Static pricing in **USD per 1M tokens**
+- Cost estimation from **token counts or raw text**
+- USD or INR output (you supply FX rate)
+- CLI for listing models and summing JSONL usage
+
+## Install
+
+```bash
+pip install llm-price
+```
+
+## Quickstart (Python)
+
+```python
+from decimal import Decimal
+
+from llm_price import cost_from_text, cost_from_tokens, list_models
+
+models = list_models("openai")
+print(models[0])
+
+cost = cost_from_text(
+    "openai",
+    "gpt-4o-mini",
+    prompt="Summarize this text.",
+    completion="Here is a summary...",
+)
+print(cost.total_cost)
+
+cost_in_inr = cost_from_tokens(
+    "google",
+    "gemini-1.5-flash",
+    prompt_tokens=120,
+    completion_tokens=40,
+    currency="INR",
+    fx_usd_to_inr=Decimal("83.12"),
+)
+print(cost_in_inr.total_cost)
+```
+
+## CLI
+
+```bash
+llm-price models --provider openai
+
+llm-price cost \
+  --provider openai \
+  --model gpt-4o-mini \
+  --prompt "Hello" \
+  --completion "Hi" \
+  --currency USD
+
+llm-price cost \
+  --provider google \
+  --model gemini-1.5-flash \
+  --prompt-tokens 100 \
+  --completion-tokens 20 \
+  --currency INR \
+  --fx-usd-inr 83.12
+```
+
+## JSONL Summation
+
+`llm-price sum usage.jsonl` supports lines with:
+
+### Token counts
+
+```json
+{"provider":"openai","model":"gpt-4o-mini","prompt_tokens":1200,"completion_tokens":400}
+```
+
+### Raw text (tokenized internally)
+
+```json
+{"provider":"openai","model":"gpt-4o-mini","prompt":"Hello","completion":"Hi"}
+```
+
+### Pre-computed totals
+
+```json
+{"total_cost":{"amount":"0.0123","currency":"USD"}}
+```
+
+## Example Scripts
+
+Run these from the repo root after installing dependencies:
+
+```bash
+python examples/basic_cost.py
+python examples/inr_conversion.py
+python examples/sum_jsonl.py
+```
+
+## Notes
+
+- Pricing data is stored in `src/llm_price/data/models.json` in **USD per 1M tokens**.
+- For INR output you must supply an FX rate (`fx_usd_to_inr`).
+- Gemini token counting uses the official CountTokens API when `GOOGLE_API_KEY` is set; otherwise it falls back to an approximation.
+
+## Development
+
+```bash
+pip install -e ".[dev]"
+pytest
+```

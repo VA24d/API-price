@@ -1,0 +1,2 @@
+[console_scripts]
+llm-price = llm_price.cli:app
