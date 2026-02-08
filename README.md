@@ -127,3 +127,4 @@ Configure the PyPI Trusted Publisher with:
 - **Owner**: `VA24d`
 - **Repository name**: `API-price`
 - **Workflow name**: `publish.yml`
+- **Environment name**: `pypi`
