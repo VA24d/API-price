@@ -6,7 +6,7 @@ readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
 authors = [
-  { name = "Your Name" }
+  { name = "Vijay A" }
 ]
 dependencies = [
   "tiktoken>=0.7.0",
@@ -18,7 +18,7 @@ dependencies = [
 dev = ["pytest>=8.0.0", "ruff>=0.6.0", "mypy>=1.10.0"]
 
 [project.urls]
-Homepage = "https://example.com"
+Homepage = "https://github.com/VA24d/API-price"
 
 [project.scripts]
 llm-price = "llm_price.cli:app"

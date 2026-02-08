@@ -110,3 +110,20 @@ python examples/sum_jsonl.py
 pip install -e ".[dev]"
 pytest
 ```
+
+## Release (PyPI)
+
+This project uses GitHub Actions trusted publishing. Create a tag like `v0.1.0`
+and push it to GitHub to trigger the publish workflow:
+
+```bash
+git tag v0.1.0
+git push origin v0.1.0
+```
+
+Configure the PyPI Trusted Publisher with:
+
+- **PyPI Project Name**: `llm-price`
+- **Owner**: `VA24d`
+- **Repository name**: `API-price`
+- **Workflow name**: `publish.yml`

@@ -15,3 +15,13 @@ breakdown = cost_from_text(
 )
 print(breakdown.total_cost)
 ```
+
+## Release (PyPI)
+
+Publishing is handled by GitHub Actions with trusted publishing. After you
+configure the PyPI Trusted Publisher, create a tag and push it:
+
+```bash
+git tag v0.1.0
+git push origin v0.1.0
+```
