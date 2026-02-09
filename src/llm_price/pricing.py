@@ -2,12 +2,12 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from decimal import Decimal
-from typing import Iterable, Literal
+from typing import Iterable
 
-from llm_price.currency import convert_money
+from llm_price.currency import convert_money, get_fx_rate
 from llm_price.data import get_model_info
 from llm_price.tokens import estimate_tokens
-from llm_price.types import Money, TokenPrice, TokenUsage
+from llm_price.types import CurrencyCode, Money, TokenPrice, TokenUsage
 
 
 @dataclass(frozen=True)
@@ -19,7 +19,7 @@ class CostBreakdown:
     notes: str | None = None
 
 
-def _calc_cost(amount: Decimal, currency: Literal["USD", "INR"]) -> Money:
+def _calc_cost(amount: Decimal, currency: CurrencyCode) -> Money:
     return Money(currency=currency, amount=amount)
 
 
@@ -34,10 +34,12 @@ def cost_from_tokens(
     *,
     prompt_tokens: int,
     completion_tokens: int,
-    currency: Literal["USD", "INR"] = "USD",
-    fx_usd_to_inr: Decimal | None = None,
+    currency: CurrencyCode = "USD",
+    fx_rate: Decimal | None = None,
 ) -> CostBreakdown:
     """Compute cost from explicit token counts."""
+    if currency != "USD" and fx_rate is None:
+        fx_rate = get_fx_rate("USD", currency)
     _ensure_positive_tokens(prompt_tokens, completion_tokens)
     info = get_model_info(provider, model)
     token_price = info.pricing
@@ -50,10 +52,10 @@ def cost_from_tokens(
     money_prompt = _calc_cost(prompt_cost, "USD")
     money_completion = _calc_cost(completion_cost, "USD")
     money_total = _calc_cost(total_cost, "USD")
-    if currency == "INR":
-        money_prompt = convert_money(money_prompt, "INR", fx_usd_to_inr)
-        money_completion = convert_money(money_completion, "INR", fx_usd_to_inr)
-        money_total = convert_money(money_total, "INR", fx_usd_to_inr)
+    if currency != "USD":
+        money_prompt = convert_money(money_prompt, currency, fx_rate)
+        money_completion = convert_money(money_completion, currency, fx_rate)
+        money_total = convert_money(money_total, currency, fx_rate)
 
     usage = TokenUsage(prompt_tokens=prompt_tokens, completion_tokens=completion_tokens)
     return CostBreakdown(
@@ -70,10 +72,12 @@ def cost_from_text(
     *,
     prompt: str,
     completion: str | None = None,
-    currency: Literal["USD", "INR"] = "USD",
-    fx_usd_to_inr: Decimal | None = None,
+    currency: CurrencyCode = "USD",
+    fx_rate: Decimal | None = None,
 ) -> CostBreakdown:
     """Compute cost from prompt/completion text by estimating tokens."""
+    if currency != "USD" and fx_rate is None:
+        fx_rate = get_fx_rate("USD", currency)
     usage, note = estimate_tokens(provider, model, prompt=prompt, completion=completion)
     breakdown = cost_from_tokens(
         provider,
@@ -81,7 +85,7 @@ def cost_from_text(
         prompt_tokens=usage.prompt_tokens,
         completion_tokens=usage.completion_tokens,
         currency=currency,
-        fx_usd_to_inr=fx_usd_to_inr,
+        fx_rate=fx_rate,
     )
     if note:
         return CostBreakdown(
@@ -97,7 +101,7 @@ def cost_from_text(
 def sum_cost(records: Iterable[CostBreakdown | dict]) -> Money:
     """Sum total costs from CostBreakdown objects or dicts with 'total_cost'."""
     total = Decimal("0")
-    currency: Literal["USD", "INR"] | None = None
+    currency: CurrencyCode | None = None
     for record in records:
         if isinstance(record, CostBreakdown):
             amount = record.total_cost.amount

@@ -33,8 +33,8 @@ def main() -> None:
                     prompt=data.get("prompt", ""),
                     completion=data.get("completion"),
                     currency=data.get("currency", "USD"),
-                    fx_usd_to_inr=(
-                        Decimal(data["fx_usd_to_inr"]) if "fx_usd_to_inr" in data else None
+                    fx_rate=(
+                        Decimal(data["fx_rate"]) if "fx_rate" in data else None
                     ),
                 )
             )
@@ -46,7 +46,7 @@ def main() -> None:
                 prompt_tokens=data.get("prompt_tokens", 0),
                 completion_tokens=data.get("completion_tokens", 0),
                 currency=data.get("currency", "USD"),
-                fx_usd_to_inr=Decimal(data["fx_usd_to_inr"]) if "fx_usd_to_inr" in data else None,
+                fx_rate=Decimal(data["fx_rate"]) if "fx_rate" in data else None,
             )
         )
     total = sum_cost(records)

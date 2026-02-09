@@ -3,22 +3,21 @@ from __future__ import annotations
 import json
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
-from typing import Literal
-
 import typer
 
 from llm_price.data import list_models
 from llm_price.pricing import Money, cost_from_text, cost_from_tokens, sum_cost
+from llm_price.types import CurrencyCode
 
 
 app = typer.Typer(no_args_is_help=True)
 
 
-def _parse_currency(value: str) -> Literal["USD", "INR"]:
+def _parse_currency(value: str) -> CurrencyCode:
     normalized = value.upper()
-    if normalized not in {"USD", "INR"}:
-        raise typer.BadParameter("currency must be USD or INR")
-    return normalized  # type: ignore[return-value]
+    if not normalized.isalpha() or len(normalized) != 3:
+        raise typer.BadParameter("currency must be a 3-letter ISO code")
+    return normalized
 
 
 def _parse_decimal(value: str | None, option_name: str) -> Decimal | None:
@@ -51,10 +50,10 @@ def cost(
     prompt_tokens: int | None = typer.Option(None, "--prompt-tokens"),
     completion_tokens: int | None = typer.Option(None, "--completion-tokens"),
     currency: str = typer.Option("USD", "--currency"),
-    fx_usd_inr: str | None = typer.Option(None, "--fx-usd-inr"),
+    fx_rate: str | None = typer.Option(None, "--fx-rate"),
 ) -> None:
     parsed_currency = _parse_currency(currency)
-    parsed_fx = _parse_decimal(fx_usd_inr, "--fx-usd-inr")
+    parsed_fx = _parse_decimal(fx_rate, "--fx-rate")
     if prompt is None and prompt_tokens is None:
         raise typer.BadParameter("Provide --prompt or --prompt-tokens")
     if prompt_tokens is not None:
@@ -64,7 +63,7 @@ def cost(
             prompt_tokens=prompt_tokens,
             completion_tokens=completion_tokens or 0,
             currency=parsed_currency,
-            fx_usd_to_inr=parsed_fx,
+            fx_rate=parsed_fx,
         )
     else:
         breakdown = cost_from_text(
@@ -73,7 +72,7 @@ def cost(
             prompt=prompt or "",
             completion=completion,
             currency=parsed_currency,
-            fx_usd_to_inr=parsed_fx,
+            fx_rate=parsed_fx,
         )
     typer.echo(
         json.dumps(
@@ -120,9 +119,9 @@ def sum(
                     prompt=data.get("prompt", ""),
                     completion=data.get("completion"),
                     currency=parsed_currency,
-                    fx_usd_to_inr=(
-                        _parse_decimal(str(data["fx_usd_to_inr"]), "fx_usd_to_inr")
-                        if "fx_usd_to_inr" in data
+                    fx_rate=(
+                        _parse_decimal(str(data["fx_rate"]), "fx_rate")
+                        if "fx_rate" in data
                         else None
                     ),
                 )
@@ -135,9 +134,9 @@ def sum(
                 prompt_tokens=data.get("prompt_tokens", 0),
                 completion_tokens=data.get("completion_tokens", 0),
                 currency=parsed_currency,
-                fx_usd_to_inr=(
-                    _parse_decimal(str(data["fx_usd_to_inr"]), "fx_usd_to_inr")
-                    if "fx_usd_to_inr" in data
+                fx_rate=(
+                    _parse_decimal(str(data["fx_rate"]), "fx_rate")
+                    if "fx_rate" in data
                     else None
                 ),
             )

@@ -12,7 +12,7 @@ def main() -> None:
         prompt_tokens=1200,
         completion_tokens=400,
         currency="INR",
-        fx_usd_to_inr=Decimal("83.12"),
+        fx_rate=Decimal("83.12"),
     )
     print("Total cost (INR):", breakdown.total_cost)
 

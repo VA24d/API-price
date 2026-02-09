@@ -1,19 +1,19 @@
 # Quickstart
 
 ```python
-from decimal import Decimal
-
-from llm_price import cost_from_text
+from llm_price import cost_from_text, get_fx_rate
 
 breakdown = cost_from_text(
     "openai",
     "gpt-4o-mini",
     prompt="Hello",
     completion="Hi",
-    currency="INR",
-    fx_usd_to_inr=Decimal("83.12"),
+    currency="EUR",
 )
 print(breakdown.total_cost)
+
+live_fx = get_fx_rate("USD", "EUR")
+print(live_fx)
 ```
 
 ## Release (PyPI)

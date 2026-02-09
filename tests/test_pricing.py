@@ -21,7 +21,7 @@ def test_cost_from_tokens_inr() -> None:
         prompt_tokens=1_000_000,
         completion_tokens=0,
         currency="INR",
-        fx_usd_to_inr=Decimal("80"),
+        fx_rate=Decimal("80"),
     )
     assert breakdown.total_cost.currency == "INR"
     assert breakdown.total_cost.amount == Decimal("12")
