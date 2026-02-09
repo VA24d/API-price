@@ -5,6 +5,7 @@
     "release_date": "2024-07-18",
     "pricing": {
       "input_per_1m": "0.15",
+      "cached_input_per_1m": null,
       "output_per_1m": "0.60"
     },
     "notes": "OpenAI pricing in USD per 1M tokens"
@@ -15,6 +16,7 @@
     "release_date": "2024-05-13",
     "pricing": {
       "input_per_1m": "5.00",
+      "cached_input_per_1m": null,
       "output_per_1m": "15.00"
     },
     "notes": "OpenAI pricing in USD per 1M tokens"
@@ -25,6 +27,7 @@
     "release_date": "2024-05-14",
     "pricing": {
       "input_per_1m": "0.35",
+      "cached_input_per_1m": null,
       "output_per_1m": "1.05"
     },
     "notes": "Google pricing in USD per 1M tokens"
@@ -35,6 +38,7 @@
     "release_date": "2024-05-14",
     "pricing": {
       "input_per_1m": "3.50",
+      "cached_input_per_1m": null,
       "output_per_1m": "10.50"
     },
     "notes": "Google pricing in USD per 1M tokens"

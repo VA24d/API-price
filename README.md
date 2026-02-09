@@ -104,6 +104,9 @@ python examples/sum_jsonl.py
 ## Notes
 
 - Pricing data is stored in `src/llm_price/data/models.json` in **USD per 1M tokens**.
+- OpenAI pricing is refreshed daily from https://bes-dev.github.io/openai-pricing-api/pricing.json
+  via a GitHub Actions workflow.
+- OpenAI entries also store `cached_input_per_1m` when available.
 - For non-USD output, FX defaults to a real-time rate from exchangerate.host.
 - You can override it with `fx_rate` to use a fixed rate.
 - Rates are cached in-process for 1 hour by default.

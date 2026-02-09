@@ -15,6 +15,7 @@ class Money:
 @dataclass(frozen=True)
 class TokenPrice:
     input_per_1m: Decimal
+    cached_input_per_1m: Decimal | None
     output_per_1m: Decimal
 
 

@@ -25,3 +25,8 @@ configure the PyPI Trusted Publisher, create a tag and push it:
 git tag v0.1.0
 git push origin v0.1.0
 ```
+
+## Pricing Data Updates
+
+OpenAI pricing is refreshed daily from
+https://bes-dev.github.io/openai-pricing-api/pricing.json via GitHub Actions.

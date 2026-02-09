@@ -33,6 +33,11 @@ def _load_models() -> list[ModelInfo]:
     for item in raw:
         pricing = TokenPrice(
             input_per_1m=Decimal(item["pricing"]["input_per_1m"]),
+            cached_input_per_1m=(
+                Decimal(item["pricing"]["cached_input_per_1m"])
+                if item["pricing"].get("cached_input_per_1m") is not None
+                else None
+            ),
             output_per_1m=Decimal(item["pricing"]["output_per_1m"]),
         )
         models.append(

@@ -34,10 +34,15 @@ def models(provider: str | None = typer.Option(None, "--provider")) -> None:
     items = list_models(provider)
     for info in items:
         release = info.release_date.isoformat() if info.release_date else "unknown"
+        cached_input = (
+            f" cached_input_per_1m={info.pricing.cached_input_per_1m}"
+            if info.pricing.cached_input_per_1m is not None
+            else ""
+        )
         typer.echo(
             f"{info.provider}:{info.model} release={release} "
             f"input_per_1m={info.pricing.input_per_1m} "
-            f"output_per_1m={info.pricing.output_per_1m}"
+            f"output_per_1m={info.pricing.output_per_1m}{cached_input}"
         )
 
 

@@ -1,0 +1,43 @@
+name: Update OpenAI Pricing
+
+on:
+  schedule:
+    - cron: "0 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-pricing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e .
+
+      - name: Update OpenAI pricing metadata
+        run: python scripts/update_openai_pricing.py
+
+      - name: Commit changes
+        run: |
+          if git diff --quiet; then
+            echo "No pricing changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/llm_price/data/models.json
+          git commit -m "chore(data): refresh OpenAI pricing"
+          git push
