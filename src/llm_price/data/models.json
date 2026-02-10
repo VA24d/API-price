@@ -1,25 +1,806 @@
 [
   {
     "provider": "openai",
-    "model": "gpt-4o-mini",
-    "release_date": "2024-07-18",
+    "model": "babbage-002",
+    "release_date": null,
     "pricing": {
-      "input_per_1m": "0.15",
+      "input_per_1m": "0.4",
       "cached_input_per_1m": null,
-      "output_per_1m": "0.60"
+      "output_per_1m": "0.4"
     },
-    "notes": "OpenAI pricing in USD per 1M tokens"
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "chatgpt-4o-latest",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "5",
+      "cached_input_per_1m": null,
+      "output_per_1m": "15"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "chatgpt-image-latest",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "8",
+      "cached_input_per_1m": "2",
+      "output_per_1m": "32"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "codex-mini-latest",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "1.5",
+      "cached_input_per_1m": "0.375",
+      "output_per_1m": "6"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "computer-use-preview",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "3",
+      "cached_input_per_1m": null,
+      "output_per_1m": "12"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "davinci-002",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "2",
+      "cached_input_per_1m": null,
+      "output_per_1m": "2"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-3.5-0301",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "1.5",
+      "cached_input_per_1m": null,
+      "output_per_1m": "2"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-3.5-turbo",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "0.5",
+      "cached_input_per_1m": null,
+      "output_per_1m": "1.5"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-3.5-turbo-0125",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "0.5",
+      "cached_input_per_1m": null,
+      "output_per_1m": "1.5"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-3.5-turbo-0613",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "1.5",
+      "cached_input_per_1m": null,
+      "output_per_1m": "2"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-3.5-turbo-1106",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "1",
+      "cached_input_per_1m": null,
+      "output_per_1m": "2"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-3.5-turbo-16k-0613",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "3",
+      "cached_input_per_1m": null,
+      "output_per_1m": "4"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-3.5-turbo-instruct",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "1.5",
+      "cached_input_per_1m": null,
+      "output_per_1m": "2"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-4-0125-preview",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "10",
+      "cached_input_per_1m": null,
+      "output_per_1m": "30"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-4-0314",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "30",
+      "cached_input_per_1m": null,
+      "output_per_1m": "60"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-4-0613",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "30",
+      "cached_input_per_1m": null,
+      "output_per_1m": "60"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-4-1106-preview",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "10",
+      "cached_input_per_1m": null,
+      "output_per_1m": "30"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-4-1106-vision-preview",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "10",
+      "cached_input_per_1m": null,
+      "output_per_1m": "30"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-4-32k",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "60",
+      "cached_input_per_1m": null,
+      "output_per_1m": "120"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-4-turbo-2024-04-09",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "10",
+      "cached_input_per_1m": null,
+      "output_per_1m": "30"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-4.1",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "3.5",
+      "cached_input_per_1m": "0.875",
+      "output_per_1m": "14"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-4.1-2025-04-14",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "3",
+      "cached_input_per_1m": "0.75",
+      "output_per_1m": "12"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-4.1-mini",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "0.7",
+      "cached_input_per_1m": "0.175",
+      "output_per_1m": "2.8"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "0.8",
+      "cached_input_per_1m": "0.2",
+      "output_per_1m": "3.2"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-4.1-nano",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "0.2",
+      "cached_input_per_1m": "0.05",
+      "output_per_1m": "0.8"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-4.1-nano-2025-04-14",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "0.2",
+      "cached_input_per_1m": "0.05",
+      "output_per_1m": "0.8"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
   },
   {
     "provider": "openai",
     "model": "gpt-4o",
     "release_date": "2024-05-13",
     "pricing": {
-      "input_per_1m": "5.00",
-      "cached_input_per_1m": null,
-      "output_per_1m": "15.00"
+      "input_per_1m": "4.25",
+      "cached_input_per_1m": "2.125",
+      "output_per_1m": "17"
     },
     "notes": "OpenAI pricing in USD per 1M tokens"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-4o-2024-05-13",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "8.75",
+      "cached_input_per_1m": null,
+      "output_per_1m": "26.25"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-4o-2024-08-06",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "3.75",
+      "cached_input_per_1m": "1.875",
+      "output_per_1m": "15"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-4o-audio-preview",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "40",
+      "cached_input_per_1m": null,
+      "output_per_1m": "80"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-4o-mini",
+    "release_date": "2024-07-18",
+    "pricing": {
+      "input_per_1m": "0.25",
+      "cached_input_per_1m": "0.125",
+      "output_per_1m": "1"
+    },
+    "notes": "OpenAI pricing in USD per 1M tokens"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-4o-mini-2024-07-18",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "0.3",
+      "cached_input_per_1m": "0.15",
+      "output_per_1m": "1.2"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-4o-mini-audio-preview",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "10",
+      "cached_input_per_1m": null,
+      "output_per_1m": "20"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-4o-mini-realtime-preview",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "10",
+      "cached_input_per_1m": "0.3",
+      "output_per_1m": "20"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-4o-mini-search-preview",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "0.15",
+      "cached_input_per_1m": null,
+      "output_per_1m": "0.6"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-4o-mini-transcribe",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "3",
+      "cached_input_per_1m": null,
+      "output_per_1m": "5"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-4o-mini-tts",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "0.6",
+      "cached_input_per_1m": null,
+      "output_per_1m": "12"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-4o-realtime-preview",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "40",
+      "cached_input_per_1m": "2.5",
+      "output_per_1m": "80"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-4o-search-preview",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "2.5",
+      "cached_input_per_1m": null,
+      "output_per_1m": "10"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-4o-transcribe",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "6",
+      "cached_input_per_1m": null,
+      "output_per_1m": "10"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-4o-transcribe-diarize",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "6",
+      "cached_input_per_1m": null,
+      "output_per_1m": "10"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-5",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "2.5",
+      "cached_input_per_1m": "0.25",
+      "output_per_1m": "20"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-5-chat-latest",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "1.25",
+      "cached_input_per_1m": "0.125",
+      "output_per_1m": "10"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-5-codex",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "2.5",
+      "cached_input_per_1m": "0.25",
+      "output_per_1m": "20"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-5-mini",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "0.45",
+      "cached_input_per_1m": "0.045",
+      "output_per_1m": "3.6"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-5-nano",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "0.05",
+      "cached_input_per_1m": "0.005",
+      "output_per_1m": "0.4"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-5-pro",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "15",
+      "cached_input_per_1m": null,
+      "output_per_1m": "120"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-5-search-api",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "1.25",
+      "cached_input_per_1m": "0.125",
+      "output_per_1m": "10"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-5.1",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "2.5",
+      "cached_input_per_1m": "0.25",
+      "output_per_1m": "20"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-5.1-chat-latest",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "1.25",
+      "cached_input_per_1m": "0.125",
+      "output_per_1m": "10"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-5.1-codex",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "2.5",
+      "cached_input_per_1m": "0.25",
+      "output_per_1m": "20"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-5.1-codex-max",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "2.5",
+      "cached_input_per_1m": "0.25",
+      "output_per_1m": "20"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-5.1-codex-mini",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "0.25",
+      "cached_input_per_1m": "0.025",
+      "output_per_1m": "2"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-5.2",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "3.5",
+      "cached_input_per_1m": "0.35",
+      "output_per_1m": "28"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-5.2-chat-latest",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "1.75",
+      "cached_input_per_1m": "0.175",
+      "output_per_1m": "14"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-5.2-codex",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "3.5",
+      "cached_input_per_1m": "0.35",
+      "output_per_1m": "28"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-5.2-pro",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "21",
+      "cached_input_per_1m": null,
+      "output_per_1m": "168"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-audio",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "32",
+      "cached_input_per_1m": null,
+      "output_per_1m": "64"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-audio-mini",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "10",
+      "cached_input_per_1m": null,
+      "output_per_1m": "20"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-image-1",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "10",
+      "cached_input_per_1m": "2.5",
+      "output_per_1m": "40"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-image-1-mini",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "2.5",
+      "cached_input_per_1m": "0.25",
+      "output_per_1m": "8"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-image-1.5",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "8",
+      "cached_input_per_1m": "2",
+      "output_per_1m": "32"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-realtime",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "32",
+      "cached_input_per_1m": "0.4",
+      "output_per_1m": "64"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-realtime-mini",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "10",
+      "cached_input_per_1m": "0.3",
+      "output_per_1m": "20"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "o1-mini",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "1.1",
+      "cached_input_per_1m": "0.55",
+      "output_per_1m": "4.4"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "o1-pro",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "150",
+      "cached_input_per_1m": null,
+      "output_per_1m": "600"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "o3-deep-research",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "10",
+      "cached_input_per_1m": "2.5",
+      "output_per_1m": "40"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "o3-mini",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "1.1",
+      "cached_input_per_1m": "0.55",
+      "output_per_1m": "4.4"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "o3-pro",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "20",
+      "cached_input_per_1m": null,
+      "output_per_1m": "80"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "o4-mini",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "2",
+      "cached_input_per_1m": "0.5",
+      "output_per_1m": "8"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "o4-mini-2025-04-16",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "4",
+      "cached_input_per_1m": "1",
+      "output_per_1m": "16"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "o4-mini-2025-04-16with data sharing",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "2",
+      "cached_input_per_1m": "0.5",
+      "output_per_1m": "8"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "o4-mini-deep-research",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "2",
+      "cached_input_per_1m": "0.5",
+      "output_per_1m": "8"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
   },
   {
     "provider": "google",
