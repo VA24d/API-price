@@ -628,7 +628,29 @@
   },
   {
     "provider": "openai",
+    "model": "gpt-5.3-codex",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "3.5",
+      "cached_input_per_1m": "0.35",
+      "output_per_1m": "28"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
     "model": "gpt-audio",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "32",
+      "cached_input_per_1m": null,
+      "output_per_1m": "64"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-audio-1.5",
     "release_date": null,
     "pricing": {
       "input_per_1m": "32",
@@ -684,6 +706,17 @@
   {
     "provider": "openai",
     "model": "gpt-realtime",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "32",
+      "cached_input_per_1m": "0.4",
+      "output_per_1m": "64"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-realtime-1.5",
     "release_date": null,
     "pricing": {
       "input_per_1m": "32",
