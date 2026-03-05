@@ -628,6 +628,17 @@
   },
   {
     "provider": "openai",
+    "model": "gpt-5.3-chat-latest",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "1.75",
+      "cached_input_per_1m": "0.175",
+      "output_per_1m": "14"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
     "model": "gpt-5.3-codex",
     "release_date": null,
     "pricing": {
