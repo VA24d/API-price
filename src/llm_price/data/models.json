@@ -650,6 +650,50 @@
   },
   {
     "provider": "openai",
+    "model": "gpt-5.4 (<272K context length)",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "5",
+      "cached_input_per_1m": "0.5",
+      "output_per_1m": "30"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-5.4 (>272K context length)",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "5",
+      "cached_input_per_1m": "0.5",
+      "output_per_1m": "22.5"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-5.4-pro (<272K context length)",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "30",
+      "cached_input_per_1m": null,
+      "output_per_1m": "180"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-5.4-pro (>272K context length)",
+    "release_date": null,
+    "pricing": {
+      "input_per_1m": "60",
+      "cached_input_per_1m": null,
+      "output_per_1m": "270"
+    },
+    "notes": "OpenAI pricing from openai-pricing-api"
+  },
+  {
+    "provider": "openai",
     "model": "gpt-audio",
     "release_date": null,
     "pricing": {
